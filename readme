@@ -1,1 +1,2 @@
-http://segment7.net/projects/ruby/drb/introduction.html
+Bom, o ruby possui uma biblioteca de RMI chamada drb => http://segment7.net/projects/ruby/drb/introduction.html
+coloquei um exemplo na pasta exemplo drb pra mostrar como ela funciona, ela é bem simples aparentemente a sintaxe é mais simples do que a RPyC que eu uso no python, só não sei se tem boa documentação. Vamos tentar usar ela por enquanto ;)
