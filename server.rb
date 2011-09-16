@@ -1,4 +1,4 @@
-require 'drb'
+
 
 class Server
   attr_accessor :port
@@ -7,7 +7,7 @@ class Server
 
   end
   def calculate member
-    eval member    
+    eval member.to_s    
   end
 end
 
