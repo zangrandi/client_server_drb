@@ -1,10 +1,6 @@
 #coding: utf-8
+require './domain_server.rb'
 
-require './main_server.rb'
-
-main_server = MainServer.new
-main_server.register "druby://127.0.0.1:2015"
-main_server.register "druby://127.0.0.1:2016"
 
 class String
   def expression?
@@ -12,8 +8,10 @@ class String
   end
 end
 
+main_server = DRbObject.new_with_uri "druby://127.0.0.1:2017"
+
 begin  
   input = gets.chomp
-  input.expression? ? (p main_server.calculate input) : (p "não é uma expressão")
+  p input.expression? ? (main_server.calculate input) : ("não é uma expressão")
 end until input == "quit"
 

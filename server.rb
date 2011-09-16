@@ -10,4 +10,8 @@ class Server
   def calculate expression
     eval expression.to_s    
   end
+  
+  def register_on domain_server
+    domain_server.register "druby://127.0.0.1:#{@port}"
+  end
 end
