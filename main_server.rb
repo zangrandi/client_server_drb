@@ -1,23 +1,26 @@
 require 'drb'
 
 class MainServer
-  def initialize server_list
+  def initialize 
     @servers = []
-    DRb.start_service #inicia os servicos
-    server_list.each { |server|  x = DRbObject.new_with_uri server
-                                  @servers << x }
+    DRb.start_service
   end
-  def sort_a_server
-    @servers.sample
+  
+  def register server
+    x = DRbObject.new_with_uri server
+    @servers << x
   end
-  def solve member
-    server_solver = sort_a_server
-    server_solver.calculate member    
+  
+  def sort_one_server
+    available_servers.sample
+  end
+  
+  def available_servers
+    @servers.select {|server| server.state == :available}
+  end
+  
+  def calculate expression
+    server = sort_one_server
+    "result: #{server.calculate expression} calculated by server in port #{server.port}"
   end
 end
-
-
-mainserver = MainServer.new ["druby://127.0.0.1:2015", "druby://127.0.0.1:2016"] #enviando uma lista de servidores validos
-p "resolvendo 1+1..."
-p mainserver.solve "1+1"
-
