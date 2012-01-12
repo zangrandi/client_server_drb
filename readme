@@ -1,2 +1,1 @@
-Bom, o ruby possui uma biblioteca de RMI chamada drb => http://segment7.net/projects/ruby/drb/introduction.html
-coloquei um exemplo na pasta exemplo drb pra mostrar como ela funciona, ela é bem simples aparentemente a sintaxe é mais simples do que a RPyC que eu uso no python, só não sei se tem boa documentação. Vamos tentar usar ela por enquanto ;)
+The code receives a math expression from STDIN (ex: "10 x 5 + 3 + pow(5) + srqt(9)"), splits the operations respecting the precendence order, distributes it to the available servers and then shows the answer to the user.
